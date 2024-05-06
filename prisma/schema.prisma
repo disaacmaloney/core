@@ -15,9 +15,17 @@ datasource db {
 
 
 model USE_USERS {
-  USE_ID Int @id @default(autoincrement())
+  USER_ID Int @id @default(autoincrement())
   USE_USERNAME String @unique
+  USE_EMAIL String
   USE_PASSWORD String
   USE_NAME String
   USE_LASTNAME String
+  ROLE_ID Int 
+}
+
+model ROL_ROLE {
+  ROLE_ID Int @default(autoincrement())
+  ROL_NAME String
+  ROL_STATE Int
 }

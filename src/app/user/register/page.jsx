@@ -1,25 +1,15 @@
 "use client";
 import  { useForm } from 'react-hook-form';
-import { alertError } from './../../components/alert';
+import { alertError } from '@/components/alert';
 
-function LoginPage() {
+export default function LoginPage() {
     const { register, handleSubmit, formState: {errors} } = useForm();
 
-    const onSubmit = handleSubmit(async (data) => {
-        
-        const response = await fetch('/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        });
-
-        const dataResponse = await response;
-        console.log(dataResponse);
+    const onSubmit = handleSubmit(data => {
+        console.log(data);
     });
 
-    return(  
+    return (
         <section className="bg-gray-50 dark:bg-gray-900">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0 ">
                 <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
@@ -77,7 +67,7 @@ function LoginPage() {
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" className="border-2 border-blue-600 text-blue-600 dark:text-white hover:text-white  w-full hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:focus:ring-primary-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
+                            <button type="submit" className="border-2 border-blue-600 text-blue-600 dark:text-white hover:text-white  w-full hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:focus:ring-primary-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Ingresar</button>
 
                         </form>
                     </div>
@@ -86,5 +76,3 @@ function LoginPage() {
         </section>
     )
 }
-
-export default LoginPage;
